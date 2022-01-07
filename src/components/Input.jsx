@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class Input extends Component {
+class Input extends Component {
   render() {
-    const { label, type, name, value, onChange, dataTestid } = this.props;
+    const { label, type, name, value, onChange, dataTestid, checked } = this.props;
 
     return (
       <label htmlFor={ name }>
@@ -15,6 +15,7 @@ export class Input extends Component {
           value={ value }
           onChange={ onChange }
           data-testid={ dataTestid }
+          checked={ checked }
         />
       </label>
     );
@@ -30,4 +31,5 @@ Input.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.string.isRequired,
   dataTestid: PropTypes.string.isRequired,
+  checked: PropTypes.string.isRequired,
 };
