@@ -3,19 +3,22 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { label, type, name, value, onChange, dataTestid, checked } = this.props;
+    const { label, type, name, value, onChange, dataTestid,
+      checked, id, max, min } = this.props;
 
     return (
-      <label htmlFor={ name }>
+      <label htmlFor={ id }>
         {label}
         <input
           type={ type }
           name={ name }
-          id={ name }
+          id={ id }
           value={ value }
           onChange={ onChange }
           data-testid={ dataTestid }
           checked={ checked }
+          max={ max }
+          min={ min }
         />
       </label>
     );
@@ -32,4 +35,7 @@ Input.propTypes = {
   onChange: PropTypes.string.isRequired,
   dataTestid: PropTypes.string.isRequired,
   checked: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  max: PropTypes.string.isRequired,
+  min: PropTypes.string.isRequired,
 };

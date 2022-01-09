@@ -12,6 +12,7 @@ class Form extends Component {
         <Input
           dataTestid="name-input"
           type="text"
+          id="nameInput"
           name="cardName"
           label="Nome"
           value={ cardName }
@@ -22,32 +23,42 @@ class Form extends Component {
           type="textarea"
           name="cardDescription"
           label="textarea"
+          id="areaInput"
           value={ cardDescription }
           onChange={ onInputChange }
         />
         <Input
           dataTestid="attr1-input"
           type="number"
+          max="90"
+          min="0"
           name="cardAttr1"
           label="number1"
           value={ cardAttr1 }
           onChange={ onInputChange }
+          id="cardAttr1"
         />
         <Input
           dataTestid="attr2-input"
+          max="90"
+          min="0"
           type="number"
           name="cardAttr2"
           label="number2"
           value={ cardAttr2 }
           onChange={ onInputChange }
+          id="cardAttr2"
         />
         <Input
           dataTestid="attr3-input"
           type="number"
           name="cardAttr3"
+          max="90"
+          min="0"
           label="number3"
           value={ cardAttr3 }
           onChange={ onInputChange }
+          id="cardAttr3"
         />
         <Input
           dataTestid="image-input"
@@ -56,6 +67,7 @@ class Form extends Component {
           label="textimagem"
           value={ cardImage }
           onChange={ onInputChange }
+          id="cardImage"
         />
         <label htmlFor="raridade">
           Raridade
@@ -64,6 +76,7 @@ class Form extends Component {
             value={ cardRare }
             onChange={ onInputChange }
             name="cardRare"
+            id="raridade"
           >
             <option value="normal">Normal</option>
             <option value="raro">raro</option>
@@ -77,13 +90,15 @@ class Form extends Component {
           label="checkbox"
           checked={ cardTrunfo }
           onChange={ onInputChange }
+          id="cardTrunfo"
         />
         <button
-          type="button"
+          type="submit"
           disabled={ isSaveButtonDisabled }
           onClick={ onSaveButtonClick }
           data-testid="save-button"
           name="cardTrunfo"
+          id="cardTrunfo"
         >
           Salvar
         </button>
