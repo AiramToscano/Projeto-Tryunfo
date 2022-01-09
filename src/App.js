@@ -65,6 +65,20 @@ class App extends React.Component {
     }
   }
 
+  onSaveButtonClick = (event) => {
+    event.preventDefault(); // preciso parar o evento de recarregar da pagina
+    const INITIAL_STATE2 = {
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+    };
+    this.setState(INITIAL_STATE2);
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled } = this.state;
@@ -83,6 +97,7 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           cardName={ cardName }
