@@ -63,6 +63,7 @@ class App extends React.Component {
         },
       );
     }
+    this.validCheck();
   }
 
   validCheck = () => {
@@ -95,7 +96,6 @@ class App extends React.Component {
       cardRare: 'normal',
     };
     this.setState(INITIAL_STATE2);
-    this.validCheck();
   }
 
   render() {
