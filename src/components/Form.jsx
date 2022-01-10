@@ -83,12 +83,12 @@ class Form extends Component {
             <option value="muito raro">muito raro</option>
           </select>
         </label>
-        { cardTrunfo ? "Você já tem um Super Trunfo em seu baralho" : <Input
+        { cardTrunfo ? 'Você já tem um Super Trunfo em seu baralho' : <Input
           dataTestid="trunfo-input"
           type="checkbox"
           name="cardTrunfo"
           label="checkbox"
-          checked={ cardTrunfo  }
+          checked={ cardTrunfo }
           onChange={ onInputChange }
           id="cardTrunfo"
         /> }
