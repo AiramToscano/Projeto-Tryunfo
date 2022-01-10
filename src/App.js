@@ -30,7 +30,7 @@ class App extends React.Component {
       : event.target.value;
     this.setState({
       [name]: value,
-    }, this.validForm); // Com ajuda do ruy barbosa criei um função para validar meus componentes
+    }, this.validCheck, this.validForm); // Com ajuda do ruy barbosa criei um função para validar meus componentes
     // mas preciso, receber meus valores do estado antes de validar, por isso
     // que eu uso uma callback para fazer essa verificação de await
   }
@@ -60,6 +60,24 @@ class App extends React.Component {
       this.setState(
         {
           isSaveButtonDisabled: true,
+        },
+      );
+    }
+  }
+
+  validCheck = () => {
+    const { cardTrunfo } = this.state;
+
+    if (cardTrunfo === true) {
+      this.setState(
+        {
+          hasTrunfo: true,
+        },
+      );
+    } else {
+      this.setState(
+        {
+          hasTrunfo: false,
         },
       );
     }

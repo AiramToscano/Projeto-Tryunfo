@@ -5,7 +5,6 @@ class Input extends Component {
   render() {
     const { label, type, name, value, onChange, dataTestid,
       checked, id, max, min } = this.props;
-
     return (
       <label htmlFor={ id }>
         {label}
