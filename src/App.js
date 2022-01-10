@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+import Register from './components/Register';
 
 const INITIAL_STATE = {
   cardName: '',
@@ -13,6 +14,7 @@ const INITIAL_STATE = {
   cardTrunfo: false,
   hasTrunfo: false,
   isSaveButtonDisabled: true,
+  users: [], // criei um array vazio para armazenar minhas cartas
 };
 
 class App extends React.Component {
@@ -63,7 +65,6 @@ class App extends React.Component {
         },
       );
     }
-    this.validCheck();
   }
 
   validCheck = () => {
@@ -84,8 +85,30 @@ class App extends React.Component {
     }
   }
 
+  addNewCart = (newCard) => {
+    // para acrescentarmos ou removermos algo de uma propriedade
+    // do state, precisamos passar uma callback para o setState
+    // adiciono cada carta ao meu array usando spread operator
+
+    this.setState((prevState) => ({ // preciso de uma callback para meu estado anterior
+      users: [...prevState.users, newCard],
+    }));
+  }
+
   onSaveButtonClick = (event) => {
     event.preventDefault(); // preciso parar o evento de recarregar da pagina
+    const { cardName, cardDescription, cardTrunfo, cardAttr1,
+      cardAttr2, cardAttr3, cardRare } = this.state;
+    const objectCard = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
     const INITIAL_STATE2 = {
       cardName: '',
       cardDescription: '',
@@ -94,13 +117,18 @@ class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
+      isSaveButtonDisabled: true,
+      cardTrunfo: false,
     };
     this.setState(INITIAL_STATE2);
+    this.validCheck(); // validaçao do meu checkbox
+    this.addNewCart(objectCard); // adiciona minha nova carta
   }
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled } = this.state;
+      cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
+      users } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -128,6 +156,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <Register users={ users } />
       </div>
     );
   }
