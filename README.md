@@ -1,8 +1,9 @@
+# Project Tryunfo
+### Projeto realizado como estudante na [Trybe](https://www.betrybe.com/).
 
+---
 
 ## O que deverá ser desenvolvido
-
-Neste projeto você vai desenvolver um jogo no estilo Super Trunfo! Ao utilizar essa aplicação uma pessoa usuária deverá ser capaz de:
 
   * Criar um baralho, com o tema livre;
 
@@ -11,3 +12,9 @@ Neste projeto você vai desenvolver um jogo no estilo Super Trunfo! Ao utilizar 
   * Visualizar todas as cartas que foram adicionadas ao baralho;
 
   * Jogar com o baralho criado.
+
+---
+
+
+## Preview do projeto
+![Tryunfo](https://github.com/AiramToscano/Projeto-Tryunfo/blob/airam-toscano-tryunfo/requisito-4.png)
