@@ -9,6 +9,7 @@ class Form extends Component {
       onInputChange, onSaveButtonClick } = this.props;
     return (
       <form>
+        <h1> Adicionar Carta</h1>
         <Input
           dataTestid="name-input"
           type="text"
@@ -22,7 +23,7 @@ class Form extends Component {
           dataTestid="description-input"
           type="textarea"
           name="cardDescription"
-          label="textarea"
+          label="Descrição"
           id="areaInput"
           value={ cardDescription }
           onChange={ onInputChange }
@@ -33,7 +34,7 @@ class Form extends Component {
           max="90"
           min="0"
           name="cardAttr1"
-          label="number1"
+          label="Nível de bebida"
           value={ cardAttr1 }
           onChange={ onInputChange }
           id="cardAttr1"
@@ -44,7 +45,7 @@ class Form extends Component {
           min="0"
           type="number"
           name="cardAttr2"
-          label="number2"
+          label="Nível de beleza"
           value={ cardAttr2 }
           onChange={ onInputChange }
           id="cardAttr2"
@@ -55,7 +56,7 @@ class Form extends Component {
           name="cardAttr3"
           max="90"
           min="0"
-          label="number3"
+          label="Idade"
           value={ cardAttr3 }
           onChange={ onInputChange }
           id="cardAttr3"
@@ -64,7 +65,7 @@ class Form extends Component {
           dataTestid="image-input"
           type="text"
           name="cardImage"
-          label="textimagem"
+          label="Imagem"
           value={ cardImage }
           onChange={ onInputChange }
           id="cardImage"
@@ -79,15 +80,15 @@ class Form extends Component {
             id="raridade"
           >
             <option value="normal">Normal</option>
-            <option value="raro">raro</option>
-            <option value="muito raro">muito raro</option>
+            <option value="raro">Raro</option>
+            <option value="muito raro">Muito raro</option>
           </select>
         </label>
         { hasTrunfo ? 'Você já tem um Super Trunfo em seu baralho' : <Input
           dataTestid="trunfo-input"
           type="checkbox"
           name="cardTrunfo"
-          label="checkbox"
+          label="Super Trunfo"
           checked={ cardTrunfo }
           onChange={ onInputChange }
           id="cardTrunfo"
@@ -98,7 +99,7 @@ class Form extends Component {
           onClick={ onSaveButtonClick }
           data-testid="save-button"
           name="cardTrunfo"
-          id="cardTrunfo"
+          id="cardbuttom"
         >
           Salvar
         </button>
@@ -110,9 +111,9 @@ class Form extends Component {
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,

@@ -35,6 +35,6 @@ Input.propTypes = {
   dataTestid: PropTypes.string.isRequired,
   checked: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  max: PropTypes.string.isRequired,
-  min: PropTypes.string.isRequired,
+  max: PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
 import Register from './components/Register';
+import './App.css'
 
 const INITIAL_STATE = {
   cardName: '',
@@ -21,6 +22,7 @@ class App extends React.Component {
   constructor(e) {
     super(e);
     this.onInputChange = this.onInputChange.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
     this.state = INITIAL_STATE;
   }
 
@@ -35,7 +37,20 @@ class App extends React.Component {
     }, this.validForm); // Com ajuda do ruy barbosa criei um função para validar meus componentes
     // mas preciso, receber meus valores do estado antes de validar, por isso
     // que eu uso uma callback para fazer essa verificação de await
+   
   }
+
+  deleteCard = ({target}) => {
+    const { users } = this.state;
+    const filter = users.filter((card) => card.cardName !== target.parentElement.id)
+    this.setState({
+      users: [...filter],
+      hasTrunfo: filter.some(card => card.cardTrunfo),
+    });
+   console.log(filter)
+  }
+  
+  
 
   validForm = () => {
     const maxAtr = 90;
@@ -85,6 +100,7 @@ class App extends React.Component {
     }
   }
 
+
   addNewCart = (newCard) => {
     // para acrescentarmos ou removermos algo de uma propriedade
     // do state, precisamos passar uma callback para o setState
@@ -98,7 +114,7 @@ class App extends React.Component {
   onSaveButtonClick = (event) => {
     event.preventDefault(); // preciso parar o evento de recarregar da pagina
     const { cardName, cardDescription, cardTrunfo, cardAttr1,
-      cardAttr2, cardAttr3, cardRare } = this.state;
+      cardAttr2, cardAttr3, cardRare, cardImage} = this.state;
     const objectCard = {
       cardName,
       cardDescription,
@@ -156,7 +172,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        <Register users={ users } />
+        <Register users={ users }  deleteCard={this.deleteCard} />
       </div>
     );
   }
